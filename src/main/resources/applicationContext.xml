@@ -44,7 +44,7 @@
     <!-- mapper批量扫描 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<!-- 指定扫描的包名:如果扫描多个包，每个包中间使用半角逗号分隔-->
-		<property name="basePackage" value="com.mk.car.dao,com.mk.cargo.dao,com.mk.driver.dao,com.mk.business.dao"/>
+		<property name="basePackage" value="com.mk.car.dao,com.mk.cargo.dao,com.mk.driver.dao,com.mk.business.dao,com.mk.common.dao"/>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>
 	

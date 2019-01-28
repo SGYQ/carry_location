@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mk.common.dao.RegionMapper">
+	<!-- 查询列表 -->
+	<select id="selectAreaById" resultType="com.mk.common.entity.Region">
+		SELECT id,name,father_id,l_level FROM dic_region 
+		WHERE id=#{id} AND VALIDITY = 1;
+	</select>
+
+	
+	
+</mapper>
