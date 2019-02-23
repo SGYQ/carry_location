@@ -1,6 +1,7 @@
 package com.mk.common.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,12 +9,28 @@ import org.springframework.stereotype.Service;
 
 import com.mk.common.dao.RegionMapper;
 import com.mk.common.entity.Region;
+import com.mk.common.util.StringUtil;
 
 @Service
 public class RegionService
 {
 	@Autowired
 	private RegionMapper regionDao;
+	
+	/**
+	 * 根据行政编号插叙名称
+	 * @param id
+	 * @return
+	 */
+	public String findNameById(String id)
+	{
+		Map<String,String> map = getEntireAreaName(id);
+		
+		return StringUtil.filterNull(map.get("A"))+
+				StringUtil.filterNull(map.get("B"))+
+				StringUtil.filterNull(map.get("C"));
+	}
+	
 	
 	/**
 	 * 根据一个区划编号获取完整名称
@@ -37,4 +54,18 @@ public class RegionService
 		
 		return map;
 	}
+	
+	
+	/**
+	 * 根据父类编号查询下属 行政区域
+	 * @param pid
+	 * @return
+	 */
+	public List<Region> getRegionsByPid(String pid)
+	{
+		List<Region> list = regionDao.selectRegionsByPid(pid);
+		
+		return list;
+	}
+	
 }

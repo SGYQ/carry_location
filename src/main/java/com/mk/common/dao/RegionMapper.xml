@@ -10,6 +10,8 @@
 		WHERE id=#{id} AND VALIDITY = 1;
 	</select>
 
-	
+	<select id="selectRegionsByPid" resultType="com.mk.common.entity.Region" parameterType="String">
+		SELECT * FROM dic_region WHERE FATHER_ID = #{id}
+	</select>
 	
 </mapper>

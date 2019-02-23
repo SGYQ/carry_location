@@ -9,4 +9,18 @@ public class StringUtil
 		
 		return false;
 	}
+	
+	/**
+	 * 处理NUll值
+	 * @param str
+	 * @return
+	 */
+	public static String filterNull(String str)
+	{
+		if( str==null )
+			return "";
+		
+		return str;
+	}
+	
 }
